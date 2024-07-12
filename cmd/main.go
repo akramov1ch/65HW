@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"65HW/display"
-	"65HW/score"
-	"65HW/transaction"
+	disp "65HW/internal/display"
+	sc "65HW/internal/score"
+	tr "65HW/internal/transaction"
 	"log"
 
 	"github.com/redis/go-redis/v9"
@@ -30,9 +30,9 @@ func main() {
 	
 	fmt.Println(pong)
 
-	score.AddMultipleUsers(client, 1)
-	display.DisplayLeaderboard(client, 5)
+	sc.AddMultipleUsers(client, 1)
+	disp.DisplayLeaderboard(client, 5)
 
-	transaction.UpdateUserScore(client, "user1", 5)
+	tr.UpdateUserScore(client, "user1", 5)
 }
 
